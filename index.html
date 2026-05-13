@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghargaan Resmi - Daffa Hafna Danendra</title>
+    <!-- Library Eksternal: Animasi & Font -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variabel Warna & Reset */
+        :root {
+            --gold: #c5a059;
+            --gold-bright: #f1d38e;
+            --dark: #0a0b10;
+            --card-bg: rgba(20, 22, 30, 0.85);
+            --border: rgba(197, 160, 89, 0.4);
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--dark);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Efek Latar Belakang */
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1c2c 0%, #0a0b10 100%);
+            z-index: -2;
+        }
+
+        .gold-dust {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Bagian Hero (Atas) */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: #000;
+            padding: 6px 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 9vw, 5.5rem);
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff 30%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            font-weight: 300;
+        }
+
+        /* Kontainer Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 150px;
+        }
+
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .main-grid:nth-child(even) { direction: ltr; }
+            .text-content { text-align: center !important; }
+        }
+
+        /* Pembingkaian Foto */
+        .photo-frame {
+            position: relative;
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--gold-bright);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .ornament-tr { position: absolute; top: -12px; right: -12px; width: 50px; height: 50px; border-top: 4px solid var(--gold); border-right: 4px solid var(--gold); }
+        .ornament-bl { position: absolute; bottom: -12px; left: -12px; width: 50px; height: 50px; border-bottom: 4px solid var(--gold); border-left: 4px solid var(--gold); }
+
+        /* Tipografi & Konten */
+        .text-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .text-content p {
+            font-size: 1.15rem;
+            color: #d0d0d0;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: var(--gold-bright);
+            font-weight: 700;
+        }
+
+        /* Tombol & Modal Jendela */
+        .btn-action {
+            display: inline-block;
+            padding: 18px 45px;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        .btn-action:hover {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 35px rgba(197, 160, 89, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: #0d0e14;
+            border: 1px solid var(--gold);
+            max-width: 650px;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+            box-shadow: 0 0 60px rgba(0,0,0,1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: var(--gold);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover { color: #fff; }
+
+        .modal-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .victory-list {
+            list-style: none;
+        }
+
+        .victory-list li {
+            margin-bottom: 18px;
+            padding-left: 35px;
+            position: relative;
+            color: #eee;
+            font-size: 1.05rem;
+        }
+
+        .victory-list li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid var(--border);
+            color: #666;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="gold-dust"></div>
+
+    <!-- Header / Bagian Atas -->
+    <header>
+        <div class="badge animate__animated animate__fadeInDown">Pencapaian Nasional</div>
+        <h1 class="animate__animated animate__fadeInUp">DAFFA HAFNA DANENDRA</h1>
+        <p class="subtitle animate__animated animate__fadeInUp">Juara 1 Olimpiade Obor Langit</p>
+        <button class="btn-action animate__animated animate__fadeInUp" onclick="toggleModal(true)">Lihat Detail Kemenangan</button>
+    </header>
+
+    <main class="container">
+        <!-- Bagian 1: Potret -->
+        <div class="main-grid">
+            <div class="photo-frame animate__animated animate__fadeInLeft">
+                <div class="ornament-tr"></div>
+                <!-- Foto Daffa -->
+                <img src="https://cos-aigc-default.agnes-ai.com/agnes/chat_attachment/b888623b-17eb-471b-b5fb-32eabee7fece/1778672447_75b0e7c2.jpg" alt="Daffa Hafna Danendra">
+                <div class="ornament-bl"></div>
+            </div>
+            <div class="text-content animate__animated animate__fadeInRight">
+                <h2>Sosok Inspiratif</h2>
+                <p>Seorang pelajar berbakat, <span class="highlight">Daffa Hafna Danendra</span>, telah mengukir sejarah dengan kecerdasan dan ketekunannya.</p>
+                <p>Berdiri di hadapan alam yang megah, ia mencerminkan semangat yang tak terbatas untuk menaklukkan setiap tantangan akademik di tingkat nasional.</p>
+                <p>Kemenangan ini adalah buah dari dedikasi tanpa henti dalam mengejar ilmu dan prestasi.</p>
+            </div>
+        </div>
+
+        <!-- Bagian 2: Medali -->
+        <div class="main-grid" style="direction: rtl;">
+            <div class="photo-frame animate__animated animate__fadeInRight" style="direction: ltr;">
+                <div class="ornament-tr"></div>
+                <!-- Foto Medali -->
+                <img src="https://cos-aigc-default.agnes-ai.com/agnes/chat_attachment/b888623b-17eb-471b-b5fb-32eabee7fece/1778672477_f433b9ad.png" alt="Medali Emas Olimpiade Obor Langit">
+                <div class="ornament-bl"></div>
+            </div>
+            <div class="text-content animate__animated animate__fadeInLeft" style="direction: ltr; text-align: right;">
+                <h2>Mahkota Emas</h2>
+                <p>Medali ini bukan sekadar tanda penghargaan, melainkan <span class="highlight">simbol kehormatan</span> atas penguasaan materi yang luar biasa.</p>
+                <p>Olimpiade Obor Langit merupakan kompetisi resmi yang diakui secara nasional, diikuti oleh ribuan peserta terbaik dari seluruh pelosok negeri.</p>
+                <p>Keberhasilan meraih peringkat pertama adalah bukti nyata kualitas intelektual yang mumpuni.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Penjelasan Kemenangan -->
+    <div id="victoryModal" class="modal">
+        <div class="modal-content animate__animated animate__zoomIn">
+            <span class="close-btn" onclick="toggleModal(false)">&times;</span>
+            <h3>Penjelasan Kemenangan</h3>
+            <ul class="victory-list">
+                <li><strong>Ajang Kompetisi:</strong> Olimpiade Obor Langit (Resmi) 2025.</li>
+                <li><strong>Pencapaian Utama:</strong> Juara 1 Nasional (Medali Emas).</li>
+                <li><strong>Bidang Studi:</strong> Meliputi kategori Baca Tulis, Bisnis, dan English.</li>
+                <li><strong>Skala Acara:</strong> Diikuti oleh pelajar SD/MI, SMP/MTs, dan SMA/MA sederajat se-Indonesia.</li>
+                <li><strong>Kesan Juri:</strong> Daffa berhasil meraih skor tertinggi melalui proses seleksi nasional yang sangat kompetitif.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Dedikasi Digital untuk Prestasi Daffa Hafna Danendra.</p>
+        <p>Halaman Resmi Dokumentasi Olimpiade Obor Langit (Nasional).</p>
+    </footer>
+
+    <!-- Skrip JavaScript -->
+    <script>
+        // Fungsi Buka/Tutup Modal
+        function toggleModal(show) {
+            const modal = document.getElementById('victoryModal');
+            modal.style.display = show ? 'flex' : 'none';
+        }
+
+        // Tutup modal jika klik di luar kotak
+        window.onclick = function(event) {
+            const modal = document.getElementById('victoryModal');
+            if (event.target == modal) {
+                toggleModal(false);
+            }
+        }
+
+        // Efek Interaktif Latar Belakang saat Mouse Bergerak
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.querySelector('.bg-gradient').style.background = 
+                `radial-gradient(circle at ${x}% ${y}%, #1a1c2c 0%, #0a0b10 80%)`;
+        });
+    </script>
+</body>
+</html>
